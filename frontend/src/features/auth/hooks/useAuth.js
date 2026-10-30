@@ -1,0 +1,27 @@
+import { useContext } from "react";
+import { AuthContext } from "../auth.context";
+import {login,register} from "../services/auth.api"
+import { useNavigate } from "react-router-dom";
+
+
+export const useAuth = ()=>{
+    const context = useContext(AuthContext)
+    const {user,setUser,loading,setLoading }=context
+
+    const handleLogin =async (username , password)=>{
+        setLoading(true)
+        const response =await login(username,password)
+        setUser(response.user)
+        setLoading(false)
+    }
+
+    const handleRegister =async (username ,email, password)=>{
+        setLoading(true)
+        const response =await login(username, email, password)
+        setUser(response.user)
+        setLoading(false)
+    }
+    return{
+        user,loading,handleLogin,handleRegister
+    }
+}
