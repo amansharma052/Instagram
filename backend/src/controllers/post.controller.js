@@ -4,9 +4,9 @@ import { toFile } from '@imagekit/nodejs';
 import jwt from "jsonwebtoken";
 import likeModel from "../models/like.model.js";
 
-const imagekit = new ImageKit({
-  privateKey: 
-});
+// const imagekit = new ImageKit({
+//   privateKey: 
+// });
 
 
 
@@ -76,10 +76,7 @@ async function getPostDetailController(req, res) {
 }
 
 async function likePostController(req, res) {
-  const username = req.user.username
-
-  const postId = req.params.postId
-
+ git 
   const post = await PostModel.findById(postId)
 
   if (!post) {
